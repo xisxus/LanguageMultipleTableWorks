@@ -1,0 +1,34 @@
+﻿@model List<LanguageInstall.Data.DTOs.MainTableDto>
+
+@{
+    ViewData["Title"] = "Translations List";
+}
+
+<h1>Translations</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>English Text</th>
+            <th>Translations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.EnglishText</td>
+                <td>
+                    <ul>
+                        @foreach (var translation in item.Translations)
+                        {
+                            <li><strong>@translation.Key:</strong> @translation.Value</li>
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿INSERT INTO [dbo].[MainTables] (EnglishText) VALUES
+('Home'),
+('Human Resource Management'),
+('Leave Management'),
+('Operation'),
+('Leave Application Entry'),
+('Company'),
+('Employee ID'),
+('Employee Name'),
+('Designation'),
+('Department'),
+('Immediate Supervisor'),
+('Head of Department'),
+('Apply Leave Format'),
+('Leave Type'),
+('From'),
+('Day(s)'),
+('To'),
+('Half Day'),
+('First Half'),
+('Second Half'),
+('File Attachment'),
+('Reason'),
+('Leave Apply'),
+('Select Dropdown Options'),
+('--Select--'),
+('--Select Apply Leave Format--'),
+('Half Day Leave'),
+('Full Day Leave'),
+('Short Leave'),
+('--Select--'),
+('Button and Action Text'),
+('Leave Apply'),
+('Half Day'),
+('Full Day'),
+('Short Leave'),
+('Other');
+
+
+
+
+  @if (User.Identity.IsAuthenticated)
+            // {
+            //     <p>Welcome, @User.Identity.Name!</p>
+            //     <a asp-controller="User" asp-action="Logout">Logout</a>
+            // }
+            // else
+            // {
+            //     <a asp-controller="User" asp-action="Login">Login</a>
+            // }

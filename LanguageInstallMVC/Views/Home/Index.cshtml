@@ -1,0 +1,171 @@
+﻿
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = ViewBag.PageTitle;
+}
+
+<h6>ViewBag Method</h6>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Breadcrumb -->
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">@ViewBag.Home</a></li>
+                    <li class="breadcrumb-item">@ViewBag.HumanResourceManagement</li>
+                    <li class="breadcrumb-item">@ViewBag.LeaveManagement</li>
+                    <li class="breadcrumb-item">@ViewBag.Operation</li>
+                    <li class="breadcrumb-item active">@ViewBag.PageTitle</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Main Form Section -->
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">@ViewBag.PageTitle</h5>
+                </div>
+                <div class="card-body">
+                    <form id="leaveApplicationForm" method="post">
+                        <!-- Employee Info Section -->
+                        <div class="gradient-bg mb-2 rounded p-3">
+                            <div class="row mb-1">
+                                <label class="col-2 col-form-label-sm required">@ViewBag.CompanyLabel</label>
+                                <div class="col-4">
+                                    <select id="companyDropdown" name="selectedItem" class="form-control form-control-sm">
+                                        <option value="">@ViewBag.SelectOption</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-1">
+                                <label class="col-2 col-form-label-sm">@ViewBag.EmployeeIdLabel</label>
+                                <div class="col-4">
+                                    <select id="employeeDropdown" class="form-control form-control-sm">
+                                        <option value="">@ViewBag.SelectEmployee</option>
+                                    </select>
+                                </div>
+
+                                <label class="col-2 col-form-label-sm">@ViewBag.EmployeeNameLabel</label>
+                                <div class="col-4">
+                                    <input id="employeeName" type="text" class="form-control form-control-sm" readonly style="border: none; outline: none; background: transparent;">
+                                </div>
+                            </div>
+
+                            <div class="row mb-1">
+                                <label class="col-2 col-form-label-sm">@ViewBag.DesignationLabel</label>
+                                <div class="col-4">
+                                    <input id="designation" type="text" class="form-control form-control-sm" readonly>
+                                </div>
+
+                                <label class="col-2 col-form-label-sm">@ViewBag.DepartmentLabel</label>
+                                <div class="col-4">
+                                    <input id="department" type="text" class="form-control form-control-sm" readonly>
+                                </div>
+                            </div>
+
+                            <div class="row mb-1">
+                                <label class="col-2 col-form-label-sm">@ViewBag.EntryIdLabel</label>
+                                <div class="col-4">
+                                    <input id="entryId" type="text" class="form-control form-control-sm" readonly>
+                                </div>
+
+                                <label class="col-2 col-form-label-sm">@ViewBag.SupervisorLabel</label>
+                                <div class="col-4">
+                                    <input id="supervisor" type="text" class="form-control form-control-sm" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Leave Information Section -->
+                        <div class="gradient-bg mb-2 rounded p-3">
+                            <div class="row mb-1">
+                                <label class="col-2 col-form-label-sm">@ViewBag.LeaveFormatLabel</label>
+                                <div class="col-4">
+                                    <select id="leaveFormat" name="leaveFormat" class="form-control form-control-sm">
+                                        <option value="">@ViewBag.SelectLeaveFormat</option>
+                                        <option value="full">@ViewBag.FullDayLeave</option>
+                                        <option value="half">@ViewBag.HalfDayLeave</option>
+                                    </select>
+                                </div>
+
+                                <label class="col-2 col-form-label-sm">@ViewBag.LeaveTypeLabel</label>
+                                <div class="col-4">
+                                    <select id="leaveType" name="leaveType" class="form-control form-control-sm">
+                                        <option value="">@ViewBag.SelectLeaveType</option>
+                                        <option value="sick">@ViewBag.SickLeave</option>
+                                        <option value="casual">@ViewBag.CasualLeave</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-1">
+                                <label class="col-2 col-form-label-sm">@ViewBag.ReasonLabel</label>
+                                <div class="col-4">
+                                    <textarea id="reason" class="form-control form-control-sm" rows="3" placeholder="@ViewBag.ReasonPlaceholder"></textarea>
+                                </div>
+
+                                <label class="col-2 col-form-label-sm">@ViewBag.FileAttachmentLabel</label>
+                                <div class="col-4">
+                                    <input type="file" id="fileAttachment" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label>@ViewBag.Test</label>
+                                <label>@ViewBag.Mobile</label>
+                                <label>@ViewBag.Laptop</label>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="row mb-1">
+                            <div class="col-12 d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary">@ViewBag.SubmitButton</button>
+                                <button type="reset" class="btn btn-secondary">@ViewBag.CancelButton</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information Section (if needed) -->
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h6>@ViewBag.AdditionalInfoTitle</h6>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>@ViewBag.HalfDayLeave @ViewBag.LeaveDuration</li>
+                        <li>@ViewBag.FullDayLeave @ViewBag.LeaveDuration</li>
+                        <li>@ViewBag.ShortLeave @ViewBag.LeaveDuration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@* <form method="post" action="/Form/Submit">
+    <div>
+        <label>@ViewBag.FirstNameLabel</label>
+        <input type="text" name="FirstName" placeholder="@ViewBag.FirstNameLabel" />
+    </div>
+    <div>
+        <label>@ViewBag.LastNameLabel</label>
+        <input type="text" name="LastName" placeholder="@ViewBag.LastNameLabel" />
+    </div>
+    <button type="submit">@ViewBag.SubmitButton</button>
+</form> *@
+
+
+

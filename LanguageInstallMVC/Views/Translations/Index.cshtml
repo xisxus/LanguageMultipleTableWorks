@@ -1,0 +1,66 @@
+﻿@model IEnumerable<LanguageInstall.Data.Model.Translation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Translations</h1>
+
+<!-- Language dropdown -->
+<form method="get" action="@Url.Action("Index", "Translations")">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="languageCode">Select Language</label>
+                <select id="languageCode" name="languageCode" class="form-control">
+                    <option value="">-- All Languages --</option>
+                    @* @foreach (var languageCode in ViewData["LanguageCodes"] as List<string>) *@
+                    @foreach (var languageCode in ViewBag.lang)
+                    {
+                        <option value="@languageCode">@languageCode</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="searchText">Search</label>
+                <input type="text" id="searchText" name="searchText" class="form-control" value="@ViewBag.SearchText" placeholder="Search in English or Translated Text" />
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+    <button type="submit" class="btn btn-primary mt-2">Filter</button>
+</form>
+
+<!-- Translations Table -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.LanguageCode)</th>
+            <th>@Html.DisplayNameFor(model => model.TranslatedText)</th>
+            <th>@Html.DisplayNameFor(model => model.MainTable)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.LanguageCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.TranslatedText)</td>
+                <td>@Html.DisplayFor(modelItem => item.MainTable.EnglishText)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Translate Text";
+}
+
+<h1>Translate Text</h1>
+
+<form method="post" asp-action="Translate">
+    <div class="form-group">
+        <label for="text">Text to Translate:</label>
+        <textarea class="form-control" id="text" name="text" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="targetLanguage">Target Language:</label>
+        <input type="text" class="form-control" id="targetLanguage" name="targetLanguage" placeholder="e.g., fr, de" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Translate</button>
+</form>
+
+@if (ViewBag.TranslatedText != null)
+{
+    <h3>Translated Text:</h3>
+    <p class="alert alert-success">@ViewBag.TranslatedText</p>
+}
+
+@if (ViewBag.Error != null)
+{
+    <p class="alert alert-danger">@ViewBag.Error</p>
+}
+

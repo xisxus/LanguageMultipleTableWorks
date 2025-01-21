@@ -1,0 +1,125 @@
+﻿@inject LanguageInstall.Service.Service.ILocalizationService TranslationService
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    // Access HttpContext via HttpContextAccessor
+    var languageCode = HttpContextAccessor.HttpContext?.Items["Language"] as string ?? "en";
+}
+
+@{
+    // Await the asynchronous method to get the languages list
+    var languages = await TranslationService.GetLang();
+}
+
+<!DOCTYPE html>
+<html lang="@languageCode">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LanguageInstallMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LanguageInstallMVC.styles.css" asp-append-version="true" />
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+    <!-- DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Language Install MVC</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Form1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RazorHelper">Form2</a>
+                        </li>
+                        @*  <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="Index">translateIndex</a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="Translate">Translate-Test</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MainTables" asp-action="Index">Label-text</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Translations" asp-action="Index">MultiLang-text</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="TranslateAll">Install-Language</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="TranslateToMultiple">Install-Multiple</a>
+                        </li>
+
+                        <!-- Other menu items here -->
+                    </ul>
+
+                    <!-- Language Dropdown -->
+                    <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' aligns it to the right -->
+                        <li class="nav-item">
+                            <select id="languageCode" name="languageCode" class="form-control form-control-sm" onchange="window.location.href='/Home/ChangeLanguage?languageCode=' + this.value;">
+                                <option value="">-- Select Language --</option>
+                                @foreach (var language in languages)
+                                {
+                                    <option value="@language" >@language</option>
+                                }
+                            </select>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+          
+
+             <div id="google_translate_element"></div> 
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - LanguageInstallMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+  @*  <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'af,sq,am,ar,hy,az,eu,be,bn,bs,bg,ca,ceb,ny,zh-CN,zh-TW,co,hr,cs,da,nl,en,eo,et,tl,fi,fr,fy,gl,ka,de,el,gu,ht,ha,haw,iw,hi,hmn,hu,is,ig,id,ga,it,ja,jw,kn,kk,km,ko,ku,ky,lo,la,lv,lt,lb,mk,mg,ms,ml,mt,mi,mr,mn,my,ne,no,or,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,sn,sd,si,sk,sl,so,es,su,sw,sv,tg,ta,te,th,tr,uk,ur,ug,uz,vi,cy,xh,yi,yo,zu',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+            }, 'google_translate_element');
+        }
+    </script>
+     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> *@
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

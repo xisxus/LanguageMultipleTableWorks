@@ -1,0 +1,192 @@
+﻿@inject LanguageInstall.Service.Service.ILocalizationService TranslationService
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    // Access HttpContext via HttpContextAccessor
+    var languageCode = HttpContextAccessor.HttpContext?.Items["Language"] as string ?? "en";
+}
+
+<h6>RazorHelper Method</h6>
+
+
+<div class="row">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">@await TranslationService.GetTranslationAsync("Home", languageCode)</a></li>
+            <li class="breadcrumb-item">@await TranslationService.GetTranslationAsync("Human Resource Management", languageCode)</li>
+            <li class="breadcrumb-item">@await TranslationService.GetTranslationAsync("Leave Management", languageCode)</li>
+            <li class="breadcrumb-item">@await TranslationService.GetTranslationAsync("Operation", languageCode)</li>
+            <li class="breadcrumb-item active">@await TranslationService.GetTranslationAsync("Leave Application Entry", languageCode)</li>
+            <li class="breadcrumb-item active">@await TranslationService.GetTranslationAsync("shefain", languageCode)</li>
+        </ol>
+    </nav>
+
+    <!-- Main Card -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">@await TranslationService.GetTranslationAsync("Leave Application Entry", languageCode)</h5>
+            </div>
+
+
+            <div class="card-body">
+                <form id="leaveApplicationForm" method="post">
+                    <!-- Employee Info Section -->
+                    <div class="gradient-bg mb-2 rounded p-3">
+                        <div class="row mb-1">
+                            <label class="col-2 col-form-label-sm required">@await TranslationService.GetTranslationAsync("Company", languageCode)</label>
+                            <div class="col-4">
+                                <select id="companyDropdown" name="selectedItem" class="form-control form-control-sm">
+                                    <option value="">@await TranslationService.GetTranslationAsync("--Select--", languageCode)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1">
+                            <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("Employee ID", languageCode)</label>
+                            <div class="col-4">
+                                <select id="employeeDropdown" class="form-control form-control-sm">
+                                    <option value="">@await TranslationService.GetTranslationAsync("--Select Employee--", languageCode)</option>
+                                </select>
+                            </div>
+                            <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("Employee Name", languageCode)</label>
+                            <div class="col-4">
+                                <input id="employeeName" type="text" class="form-control form-control-sm" value="" readonly style="border: none; outline: none; background: transparent;">
+                            </div>
+                        </div>
+
+                        <div class="row mb-1">
+                            <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("Designation", languageCode)</label>
+                            <div class="col-4">
+                                <input id="designation" type="text" class="form-control form-control-sm" value="" readonly style="border: none; outline: none; background: transparent;">
+                            </div>
+                            <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("Department", languageCode)</label>
+                            <div class="col-4">
+                                <input id="department" type="text" class="form-control form-control-sm" value="" readonly style="border: none; outline: none; background: transparent;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leave Application Section -->
+                    <div class="row mb-2">
+                        <label class="col-2 col-form-label-sm required">@await TranslationService.GetTranslationAsync("Immediate Supervisor", languageCode)</label>
+                        <div class="col-4">
+                            <select id="immediateSupervisor" class="form-control form-control-sm">
+                                <option selected></option>
+                            </select>
+                        </div>
+                        <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("Head of Department", languageCode)</label>
+                        <div class="col-4">
+                            <select id="headOfDepartment" class="form-control form-control-sm">
+                                <option selected></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col-2 col-form-label form-control-sm required">@await TranslationService.GetTranslationAsync("Apply Leave Format", languageCode)</label>
+                        <div class="col-4">
+                            <select class="form-control form-control-sm" id="applyLeaveFormat" name="selectedItem">
+                                <option selected>@await TranslationService.GetTranslationAsync("--Select Apply Leave Format--", languageCode)</option>
+                                <option value="halfDayLeave">@await TranslationService.GetTranslationAsync("Half Day Leave", languageCode)</option>
+                                <option value="fullDayLeave">@await TranslationService.GetTranslationAsync("Full Day Leave", languageCode)</option>
+                                <option value="shortLeave">@await TranslationService.GetTranslationAsync("Short Leave", languageCode)</option>
+                            </select>
+                        </div>
+                        <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("Leave Type", languageCode)</label>
+                        <div class="col-4">
+                            <select id="leaveTypeDropdown" name="selectedItem" class="form-control form-control-sm">
+                                <option value="">@await TranslationService.GetTranslationAsync("--Select--", languageCode)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="fullDayInputs" class="row mb-2" style="display: none;">
+                        <label class="col-2 col-form-label form-control-sm required">@await TranslationService.GetTranslationAsync("From", languageCode)</label>
+                        <div class="col-4">
+                            <input type="date" id="fromDate" class="form-control form-control-sm">
+                        </div>
+                        <label class="col-1 col-form-label">@await TranslationService.GetTranslationAsync("Day(s)", languageCode)</label>
+                        <div class="col-1">
+                            <input type="number" id="daysBetween" class="form-control form-control-sm" readonly>
+                        </div>
+                        <label class="col-1 col-form-label form-control-sm required">@await TranslationService.GetTranslationAsync("To", languageCode)</label>
+                        <div class="col-3">
+                            <input type="date" id="toDate" class="form-control form-control-sm">
+                        </div>
+                    </div>
+
+                    <div id="halfDayInputs" class="row mb-2" style="display: none;">
+                        <label class="col-2 col-form-label form-control-sm">@await TranslationService.GetTranslationAsync("Half Day", languageCode)</label>
+                        <div class="col-6">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="halfDayCheckbox">
+                                <label class="form-check-label" for="halfDayCheckbox">@await TranslationService.GetTranslationAsync("Half Day", languageCode)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="halfDayType" id="firstHalf">
+                                <label class="form-check-label" for="firstHalf">@await TranslationService.GetTranslationAsync("First Half", languageCode)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="halfDayType" id="secondHalf">
+                                <label class="form-check-label" for="secondHalf">@await TranslationService.GetTranslationAsync("Second Half", languageCode)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="oneDayInputs" class="row mb-2" style="display: none;">
+                        <label class="col-2 col-form-label form-control-sm required">@await TranslationService.GetTranslationAsync("From", languageCode)</label>
+                        <div class="col-4">
+                            <input type="time" id="fromTime" class="form-control form-control-sm">
+                        </div>
+                        <label class="col-1 col-form-label">@await TranslationService.GetTranslationAsync("Hour(s)", languageCode)</label>
+                        <div class="col-1">
+                            <input type="text" id="hoursBetween" class="form-control form-control-sm" readonly>
+                        </div>
+                        <label class="col-1 col-form-label-sm required">@await TranslationService.GetTranslationAsync("To", languageCode)</label>
+                        <div class="col-3">
+                            <input type="time" id="toTime" class="form-control form-control-sm">
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("File Attachment", languageCode)</label>
+                        <div class="col-4">
+                            <input type="file" class="form-control form-control-sm" id="leaveFile">
+                        </div>
+                    </div>
+
+                    <div class="row mb-2">
+                        <label class="col-2 col-form-label-sm">@await TranslationService.GetTranslationAsync("Reason", languageCode)</label>
+                        <div class="col-4">
+                            <textarea class="form-control form-control-sm" rows="3"></textarea>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button type="submit" class="btn btn-primary">@await TranslationService.GetTranslationAsync("Leave Apply", languageCode)</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h6>@await TranslationService.GetTranslationAsync("Additional Information", languageCode)</h6>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>@await TranslationService.GetTranslationAsync("Half Day Leave", languageCode)</li>
+                    <li>@await TranslationService.GetTranslationAsync("Full Day Leave", languageCode)</li>
+                    <li>@await TranslationService.GetTranslationAsync("Short Leave", languageCode)</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

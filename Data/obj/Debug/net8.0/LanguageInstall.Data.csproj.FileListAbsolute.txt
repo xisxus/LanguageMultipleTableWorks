@@ -1,0 +1,15 @@
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\bin\Debug\net8.0\LanguageInstall.Data.deps.json
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\bin\Debug\net8.0\LanguageInstall.Data.dll
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\bin\Debug\net8.0\LanguageInstall.Data.pdb
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\LanguageInstall.Data.csproj.AssemblyReference.cache
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\LanguageInstall.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\LanguageInstall.Data.AssemblyInfoInputs.cache
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\LanguageInstall.Data.AssemblyInfo.cs
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\LanguageInstall.Data.csproj.CoreCompileInputs.cache
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\LanguageInstall.Data.dll
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\refint\LanguageInstall.Data.dll
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\LanguageInstall.Data.pdb
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Data\obj\Debug\net8.0\ref\LanguageInstall.Data.dll
