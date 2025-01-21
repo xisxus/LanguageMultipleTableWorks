@@ -312,3 +312,4 @@ D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\LanguageInstallMV
 D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\LanguageInstallMVC\obj\Debug\net8.0\LanguageInstallMVC.pdb
 D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\LanguageInstallMVC\obj\Debug\net8.0\LanguageInstallMVC.genruntimeconfig.cache
 D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\LanguageInstallMVC\obj\Debug\net8.0\ref\LanguageInstallMVC.dll
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\LanguageInstallMVC\obj\Debug\net8.0\LanguageInstallMVC.sourcelink.json

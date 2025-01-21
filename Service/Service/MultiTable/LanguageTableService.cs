@@ -7,16 +7,20 @@ using LanguageInstall.Data.Data;
 using LanguageInstall.Data.Model;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace LanguageInstall.Service.Service.MultiTable
 {
     public class LanguageTableService : ILanguageTableService
     {
         private readonly AppDbContext _context;
+        private readonly string _connectionString;
 
-        public LanguageTableService(AppDbContext context)
+
+        public LanguageTableService(AppDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _connectionString = configuration.GetConnectionString("con");
         }
 
         #region Junk
@@ -138,21 +142,16 @@ namespace LanguageInstall.Service.Service.MultiTable
 
         public async Task<string> GetTranslateWithRef(string tableName, int MainId)
         {
-            var selectSql1 = $@"
-                select TranslatedText from {tableName}  where MainTableId = {MainId}
-              ";
+           
+
             
-
-           var result1 = await _context.Database.ExecuteSqlRawAsync(selectSql1);
-
-            string connectionString = "Server=DESKTOP-2L455KQ;Database=LangMultiTable;User ID=sa;Password=GCTL@123;MultipleActiveResultSets=True;Encrypt=False;TrustServerCertificate=True;";
 
             var selectSql = $@"
                     SELECT TranslatedText FROM {tableName} WHERE MainTableId = @Key
                 ";
 
           //  using (var connection = new SqlConnection(_context.Database.GetDbConnection().ConnectionString))
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand(selectSql, connection))
@@ -263,9 +262,15 @@ namespace LanguageInstall.Service.Service.MultiTable
             return true;
         }
 
+
+
         #endregion
 
-
+        public string  GetConnectionString()
+        {
+            string connectionString = _connectionString;
+            return connectionString;
+        }
     }
 
 }

@@ -16,3 +16,4 @@ D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Service\obj\Debug
 D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Service\obj\Debug\net8.0\refint\LanguageInstall.Service.dll
 D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Service\obj\Debug\net8.0\LanguageInstall.Service.pdb
 D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Service\obj\Debug\net8.0\ref\LanguageInstall.Service.dll
+D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\Service\obj\Debug\net8.0\LanguageInstall.Service.sourcelink.json

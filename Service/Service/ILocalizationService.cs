@@ -13,6 +13,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using LanguageInstall.Service.Service.MultiTable;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace LanguageInstall.Service.Service
 {
@@ -27,11 +28,14 @@ namespace LanguageInstall.Service.Service
     {
         private readonly AppDbContext _context;
         private readonly ILanguageTableService _languageTableService;
+        private readonly string _connectionString;
 
-        public LocalizationService(AppDbContext context, ILanguageTableService languageTableService)
+        public LocalizationService(AppDbContext context, ILanguageTableService languageTableService, IConfiguration configuration)
         {
             _context = context;
             _languageTableService = languageTableService;
+            
+            _connectionString = configuration.GetConnectionString("con");
         }
 
         public async Task<List<string>> GetLang()
@@ -42,7 +46,7 @@ namespace LanguageInstall.Service.Service
             //    .Distinct()
             //    .ToListAsync();
 
-            string connectionString = "Server=DESKTOP-2L455KQ;Database=LangMultiTable;User ID=sa;Password=GCTL@123;MultipleActiveResultSets=True;Encrypt=False;TrustServerCertificate=True;";
+            //string connectionString = "Server=DESKTOP-2L455KQ;Database=LangMultiTable1;User ID=sa;Password=GCTL@123;MultipleActiveResultSets=True;Encrypt=False;TrustServerCertificate=True;";
 
             var languageCodes = new List<string>();
             string query = @"
@@ -53,7 +57,7 @@ namespace LanguageInstall.Service.Service
             WHERE 
               table_name LIKE 'LanguageRef_%';";
 
-            using (var connection = new SqlConnection(connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
                 using (var command = new SqlCommand(query, connection))

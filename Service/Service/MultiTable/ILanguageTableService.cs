@@ -9,6 +9,7 @@ namespace LanguageInstall.Service.Service.MultiTable
 {
     public interface ILanguageTableService
     {
+        string GetConnectionString();
         Task AddLanguageAsync(string languageCode);
         Task AddTableWithRef(string languageCode);
         Task<bool> TableExistsWithRef(string languageCode);
