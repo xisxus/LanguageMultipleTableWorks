@@ -15,5 +15,11 @@ namespace LanguageInstall.Service.Service
             var languageCode = context.Items["Language"] as string ?? "en";
             return service.GetTranslationAsync(key, languageCode).Result;
         }
+
+        public static string TranslateInd(string key, HttpContext context, ILocalizationService service)
+        {
+            var languageCode = context.Items["Language"] as string ?? "en";
+            return service.GetTranslationAsyncInd(key, languageCode).Result;
+        }
     }
 }

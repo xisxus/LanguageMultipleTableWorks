@@ -21,7 +21,9 @@ namespace LanguageInstall.Service.Service
     {
         string GetLocalizedString(string key, string languageCode);
         Task<string> GetTranslationAsync(string key, string languageCode);
+        Task<string> GetTranslationAsyncInd(string key, string languageCode);
         Task<List<string>> GetLang();
+        Task<List<string>> GetLangInd();
     }
 
     public class LocalizationService : ILocalizationService
@@ -40,14 +42,7 @@ namespace LanguageInstall.Service.Service
 
         public async Task<List<string>> GetLang()
         {
-            // Fetch distinct language codes from the Translation table
-            //var languageCodes = await _context.Translation
-            //    .Select(t => t.LanguageCode)
-            //    .Distinct()
-            //    .ToListAsync();
-
-            //string connectionString = "Server=DESKTOP-2L455KQ;Database=LangMultiTable1;User ID=sa;Password=GCTL@123;MultipleActiveResultSets=True;Encrypt=False;TrustServerCertificate=True;";
-
+            
             var languageCodes = new List<string>();
             string query = @"
             SELECT 
@@ -72,13 +67,6 @@ namespace LanguageInstall.Service.Service
                 }
             }
 
-            //return languageNames;
-
-
-
-
-
-            // Add "en" at the beginning if it's not already in the list
             if (!languageCodes.Contains("en"))
             {
                 languageCodes.Insert(0, "en");
@@ -87,6 +75,44 @@ namespace LanguageInstall.Service.Service
 
             return languageCodes;
         }
+
+        public async Task<List<string>> GetLangInd()
+        {
+
+            var languageCodes = new List<string>();
+            string query = @"
+            SELECT 
+              REPLACE(table_name, 'LanguageInd_', '') AS LanguageName
+            FROM 
+              information_schema.tables
+            WHERE 
+              table_name LIKE 'LanguageInd_%';";
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                await connection.OpenAsync();
+                using (var command = new SqlCommand(query, connection))
+                {
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            languageCodes.Add(reader["LanguageName"].ToString());
+                        }
+                    }
+                }
+            }
+
+            if (!languageCodes.Contains("en"))
+            {
+                languageCodes.Insert(0, "en");
+            }
+
+
+            return languageCodes;
+        }
+
+
         public string GetLocalizedString(string key, string languageCode)
         {
             var mainEntry = _context.MainTables
@@ -103,6 +129,41 @@ namespace LanguageInstall.Service.Service
 
             return translation?.TranslatedText ?? mainEntry.EnglishText; // Return translation or fallback to English
         }
+
+
+        public async Task<string> GetTranslationAsyncInd(string key, string languageCode)
+        {
+            if (languageCode == "en")
+            {
+                return key;
+            }
+
+            
+
+            var tableExists = await _languageTableService.TableExistsWithInd(languageCode);
+
+            if (tableExists)
+            {
+                return key;
+            }
+
+            var tableName = await _languageTableService.GetTableNameWithInd(languageCode);
+
+            var text = await _languageTableService.GetTranslateWithInd(tableName, key);
+            if (text != null)
+            {
+                return text;
+            }
+
+            return key;
+            //var translation = mainEntry?.Translations.FirstOrDefault(t => t.LanguageCode == languageCode);
+
+
+
+            //return translation?.TranslatedText ?? key; // Fallback to English text
+        }
+
+
 
         public async Task<string> GetTranslationAsync(string key, string languageCode)
         {

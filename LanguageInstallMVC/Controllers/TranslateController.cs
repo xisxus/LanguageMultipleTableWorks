@@ -20,14 +20,16 @@ namespace LanguageInstallMVC.Controllers
         private readonly AppDbContext _dbContext;
         private readonly ITranslationService _translationService;
         private readonly ILanguageTableService _languageTableService;
+        private readonly ILocalizationService _localizationService;
         private readonly IHubContext<ProgressHub> _hubContext;
 
-        public TranslateController(AppDbContext dbContext, ITranslationService translationService, IHubContext<ProgressHub> hubContext, ILanguageTableService languageTableService)
+        public TranslateController(AppDbContext dbContext, ITranslationService translationService, IHubContext<ProgressHub> hubContext, ILanguageTableService languageTableService, ILocalizationService localizationService)
         {
             _dbContext = dbContext;
             _translationService = translationService;
             _hubContext = hubContext;
             _languageTableService = languageTableService;
+            _localizationService = localizationService;
         }
 
 
@@ -76,6 +78,116 @@ namespace LanguageInstallMVC.Controllers
             return View();
         }
 
+
+
+        public IActionResult TranslateToMultipleInd()
+        {
+
+            
+
+            var distinctTranslationCodes = _dbContext.Translation
+                .Select(trans => trans.LanguageCode)
+                .Distinct();
+
+            var result = _dbContext.LanguageLists.ToList();
+            var s = _localizationService.GetLangInd();
+            ViewBag.AvLangInd = s.Result;
+
+            return View(result);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> TranslateToMultipleInd(string languageCode, string translationQuality)
+        {
+            int sleepTime;
+
+            switch (translationQuality)
+            {
+                case "Good":
+                    sleepTime = 2000; // 1 second
+                    break;
+                case "Better":
+                    sleepTime = 3000; // 2 seconds
+                    break;
+                case "Best":
+                    sleepTime = 4000; // 3 seconds
+                    break;
+                default:
+                    sleepTime = 2000; // Default to 2 seconds if no quality is selected
+                    break;
+            }
+
+            int o = 1;
+
+            await _languageTableService.AddTableWithInd(languageCode);
+
+            var englishTexts = await _dbContext.MainTables
+                .Include(mt => mt.Translations)
+                .Where(mt => !mt.Translations.Any(t => t.LanguageCode == languageCode)).ToListAsync();
+
+            int total = englishTexts.Count;
+            ViewBag.total = total;
+
+            var options = new ChromeOptions();
+            //options.AddArgument("--headless");
+            options.AddArgument("--disable-gpu");
+            options.AddArgument("--no-sandbox");
+
+            using (var driver = new ChromeDriver(options))
+            {
+                try
+                {
+                    string url = $"https://translate.google.com/?hl=en&sl=en&tl={languageCode}&op=translate";
+                    driver.Navigate().GoToUrl(url);
+
+                    Thread.Sleep(sleepTime);
+
+                    var sourceTextBox = driver.FindElement(By.XPath("//textarea[@aria-label='Source text']"));
+
+                    foreach (var item in englishTexts)
+                    {
+                        sourceTextBox.Clear();
+                        sourceTextBox.SendKeys(item.EnglishText);
+                        Thread.Sleep(sleepTime + 1000);
+
+                        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                        var translationContainer = wait.Until(d => d.FindElement(By.ClassName("usGWQd")));
+                        var result = translationContainer.Text;
+
+                        var tableDataIndDto = new TableDataIndDto
+                        {
+                            EngText = item.EnglishText,
+                            LangCode = languageCode,
+                            TranslateText = result,
+
+                        };
+
+                        await _languageTableService.SaveDataWithInd(tableDataIndDto);
+
+                        // Send progress to the client
+                        int progress = (o++ * 100) / total;
+                        await _hubContext.Clients.All.SendAsync("UpdateProgress", progress, total);
+
+                    }
+                    // Notify clients when the operation is completed
+                    await _hubContext.Clients.All.SendAsync("OperationCompleted");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error during translation: {ex.Message}");
+                }
+                finally
+                {
+                    driver.Quit();
+                }
+            }
+
+            return RedirectToAction("TranslateToMultiple", "Translations");
+        }
+
+
+
         // Translate All Records
 
         public IActionResult TranslateToMultiple()
@@ -91,7 +203,8 @@ namespace LanguageInstallMVC.Controllers
                 .Distinct();
 
             var result = _dbContext.LanguageLists.ToList();
-
+            var s = _localizationService.GetLang();
+            ViewBag.AvLang = s.Result;
 
             return View(result);
         }
@@ -183,7 +296,7 @@ namespace LanguageInstallMVC.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "Translations");
+            return RedirectToAction("TranslateToMultiple", "Translations");
         }
 
         public IActionResult TranslateAll()

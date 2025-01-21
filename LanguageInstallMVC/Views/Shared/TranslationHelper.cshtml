@@ -6,4 +6,9 @@
     {
         return await TranslationService.GetTranslationAsync(key, languageCode);
     }
+
+    public async Task<string> TranslateAsyncInd(string key, string languageCode)
+    {
+        return await TranslationService.GetTranslationAsyncInd(key, languageCode);
+    }
 }

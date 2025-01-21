@@ -7,8 +7,11 @@
 }
 
 @{
+
     // Await the asynchronous method to get the languages list
     var languages = await TranslationService.GetLang();
+
+    var LangugesInd = await TranslationService.GetLangInd();
 }
 
 <!DOCTYPE html>
@@ -30,54 +33,41 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Language Install MVC</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Form1</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="RazorHelper">Form2</a>
                         </li>
-                        @*  <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="Index">translateIndex</a>
-                        </li>*@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="Translate">Translate-Test</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MainTables" asp-action="Index">Label-text</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="MultiTableInd">Multi-Tbl-Ind</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Translations" asp-action="Index">MultiLang-text</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="TranslateAll">Install-Language</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="TranslateToMultiple">Install-Multiple</a>
-                        </li>
-
-                        <!-- Other menu items here -->
                     </ul>
-
-                    <!-- Language Dropdown -->
-                    <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' aligns it to the right -->
-                        <li class="nav-item">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item me-2">
                             <select id="languageCode" name="languageCode" class="form-control form-control-sm" onchange="window.location.href='/Home/ChangeLanguage?languageCode=' + this.value;">
-                                <option value="">-- Select Language --</option>
+                                <option value="">-- Ind Language --</option>
+                                @foreach (var language in LangugesInd)
+                                {
+                                    <option value="@language">@language</option>
+                                }
+                            </select>
+                        </li>
+                        <li class="nav-item me-2">
+                            <select id="languageCode" name="languageCode" class="form-control form-control-sm" onchange="window.location.href='/Home/ChangeLanguage?languageCode=' + this.value;">
+                                <option value="">-- Ref Language --</option>
                                 @foreach (var language in languages)
                                 {
-                                    <option value="@language" >@language</option>
+                                    <option value="@language">@language</option>
                                 }
                             </select>
                         </li>
@@ -85,16 +75,40 @@
                     </ul>
                 </div>
             </div>
-          
-
-             <div id="google_translate_element"></div> 
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-md-3 col-lg-2 bg-light border-end py-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="Translate">Translate-Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="MainTables" asp-action="Index">Label-text</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Translations" asp-action="Index">MultiLang-text</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="TranslateAll">Install-Language</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="TranslateToMultiple">Install-Multiple-Ref</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Translate" asp-action="TranslateToMultipleInd">Install-Multiple-Ind</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="col-md-9 col-lg-10 py-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
@@ -106,19 +120,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-
-  @*  <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'af,sq,am,ar,hy,az,eu,be,bn,bs,bg,ca,ceb,ny,zh-CN,zh-TW,co,hr,cs,da,nl,en,eo,et,tl,fi,fr,fy,gl,ka,de,el,gu,ht,ha,haw,iw,hi,hmn,hu,is,ig,id,ga,it,ja,jw,kn,kk,km,ko,ku,ky,lo,la,lv,lt,lb,mk,mg,ms,ml,mt,mi,mr,mn,my,ne,no,or,ps,fa,pl,pt,pa,ro,ru,sm,gd,sr,st,sn,sd,si,sk,sl,so,es,su,sw,sv,tg,ta,te,th,tr,uk,ur,ug,uz,vi,cy,xh,yi,yo,zu',
-                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-            }, 'google_translate_element');
-        }
-    </script>
-     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> *@
-
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

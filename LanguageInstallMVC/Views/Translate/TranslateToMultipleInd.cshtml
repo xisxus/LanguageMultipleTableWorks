@@ -4,11 +4,11 @@
 }
 <link rel="stylesheet" href="~/css/StyleSheet.css">
 <h1>Install New Language</h1>
-<h4>Multiple table</h4>
+<h4>Multiple Independent table</h4>
 
 <p>Select a target language and translation quality. The process might take several minutes.</p>
 
-<form method="post" asp-action="TranslateToMultiple">
+<form method="post" asp-action="TranslateToMultipleInd">
 
     <div class="row">
 
@@ -61,7 +61,7 @@
 <h4>Available Language on Database</h4>
 
 <ul>
-    @foreach (var item in ViewBag.AvLang)
+    @foreach (var item in ViewBag.AvLangInd)
     {
         <li>@item</li>
     }

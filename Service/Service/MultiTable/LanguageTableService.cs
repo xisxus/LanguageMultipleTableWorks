@@ -73,11 +73,12 @@ namespace LanguageInstall.Service.Service.MultiTable
 
             var exists = await _context.Database.ExecuteSqlRawAsync(existsSql1) > 0;
 
-            if (exists)
-            {
-                return false;
-            }
-            return true;
+            //if (exists)
+            //{
+            //    return false;
+            //}
+            //return true;
+            return exists;
         }
         public async Task AddTableWithRef(string languageCode)
         {
@@ -182,11 +183,13 @@ namespace LanguageInstall.Service.Service.MultiTable
             if (string.IsNullOrWhiteSpace(languageCode))
                 throw new ArgumentException("Language code cannot be empty.");
 
-            // Check if the language already exists
-            var exists = await _context.Database.ExecuteSqlRawAsync(
-                $"SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{tableName}'") > 0;
+            var res = await TableExistsWithInd(languageCode);
 
-            if (!exists)
+            //// Check if the language already exists
+            //var exists = await _context.Database.ExecuteSqlRawAsync(
+            //    $"SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = '{tableName}'") > 0;
+
+            if (res)
             {
 
                 // Create a new table for the language
@@ -211,8 +214,8 @@ namespace LanguageInstall.Service.Service.MultiTable
                 var tableName = $"LanguageInd_{languageName}";
 
                 var insertSql = $@"
-                INSERT INTO {tableName} (MainTableId, TranslatedText)
-                VALUES ({model.EngText}, {model.TranslateText})";
+                INSERT INTO {tableName} (EngText, TranslatedText)
+                VALUES ('{model.EngText}', '{model.TranslateText}')";
 
                 await _context.Database.ExecuteSqlRawAsync(insertSql);
                 // await _context.Database.ExecuteSqlRawAsync(insertSql, new SqlParameter("@translatedText", translatedText));
@@ -234,12 +237,38 @@ namespace LanguageInstall.Service.Service.MultiTable
         }
 
 
-        public Task<string> GetTranslateWithInd(string tableName, string key)
+        public async Task<string> GetTranslateWithInd(string tableName, string key)
         {
-            throw new NotImplementedException();
+            //return  key;
+            try
+            {
+                var selectSql = $@"
+                    SELECT TranslatedText FROM {tableName} WHERE EngText = @Key
+                ";
+
+                //  using (var connection = new SqlConnection(_context.Database.GetDbConnection().ConnectionString))
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (var command = new SqlCommand(selectSql, connection))
+                    {
+                        command.Parameters.AddWithValue("@Key", key);
+
+                        var result = await command.ExecuteScalarAsync();
+                        return result?.ToString();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
         }
 
-        
+
 
         public async Task<bool> TableExistsWithInd(string languageCode)
         {

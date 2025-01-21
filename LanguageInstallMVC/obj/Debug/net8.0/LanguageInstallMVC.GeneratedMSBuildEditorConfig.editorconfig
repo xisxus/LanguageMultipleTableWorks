@@ -32,6 +32,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Home/MultiTableInd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNdWx0aVRhYmxlSW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -86,6 +90,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translate/TranslateToMultiple.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFRyYW5zbGF0ZVRvTXVsdGlwbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translate/TranslateToMultipleInd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFRyYW5zbGF0ZVRvTXVsdGlwbGVJbmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translations/Create.cshtml]

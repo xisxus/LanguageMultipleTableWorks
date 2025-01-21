@@ -59,6 +59,48 @@ namespace LanguageInstallMVC.Controllers
         }
 
 
+        public async Task<IActionResult> MultiTableInd()
+        {
+            var languageCode = HttpContext.Items["Language"] as string ?? "en";
+
+            // Fetch localized text from the translation service or database
+            ViewBag.PageTitle = await _translationService.GetTranslationAsyncInd("Leave Application Entry", languageCode);
+            ViewBag.Home = await _translationService.GetTranslationAsyncInd("Home", languageCode);
+            ViewBag.HumanResourceManagement = await _translationService.GetTranslationAsyncInd("Human Resource Management", languageCode);
+            ViewBag.LeaveManagement = await _translationService.GetTranslationAsyncInd("Leave Management", languageCode);
+            ViewBag.Operation = await _translationService.GetTranslationAsyncInd("Operation", languageCode);
+            ViewBag.CompanyLabel = await _translationService.GetTranslationAsyncInd("Company", languageCode);
+            ViewBag.EmployeeIdLabel = await _translationService.GetTranslationAsyncInd("Employee ID", languageCode);
+            ViewBag.EmployeeNameLabel = await _translationService.GetTranslationAsyncInd("Employee Name", languageCode);
+            ViewBag.DesignationLabel = await _translationService.GetTranslationAsyncInd("Designation", languageCode);
+            ViewBag.DepartmentLabel = await _translationService.GetTranslationAsyncInd("Department", languageCode);
+            ViewBag.EntryIdLabel = await _translationService.GetTranslationAsyncInd("Entry ID", languageCode);
+            ViewBag.SupervisorLabel = await _translationService.GetTranslationAsyncInd("Immediate Supervisor", languageCode);
+            ViewBag.LeaveFormatLabel = await _translationService.GetTranslationAsyncInd("Apply Leave Format", languageCode);
+            ViewBag.LeaveTypeLabel = await _translationService.GetTranslationAsyncInd("Leave Type", languageCode);
+            ViewBag.ReasonLabel = await _translationService.GetTranslationAsyncInd("Reason", languageCode);
+            ViewBag.FileAttachmentLabel = await _translationService.GetTranslationAsyncInd("File Attachment", languageCode);
+            ViewBag.SubmitButton = await _translationService.GetTranslationAsyncInd("Leave Apply", languageCode);
+            ViewBag.CancelButton = await _translationService.GetTranslationAsyncInd("Cancel", languageCode);
+            ViewBag.HalfDayLeave = await _translationService.GetTranslationAsyncInd("Half Day Leave", languageCode);
+            ViewBag.FullDayLeave = await _translationService.GetTranslationAsyncInd("Full Day Leave", languageCode);
+            ViewBag.SickLeave = await _translationService.GetTranslationAsyncInd("Sick Leave", languageCode);
+            ViewBag.CasualLeave = await _translationService.GetTranslationAsyncInd("Casual Leave", languageCode);
+            ViewBag.LeaveDuration = await _translationService.GetTranslationAsyncInd("Leave Duration", languageCode);
+            ViewBag.AdditionalInfoTitle = await _translationService.GetTranslationAsyncInd("Additional Information", languageCode);
+            ViewBag.SelectOption = await _translationService.GetTranslationAsyncInd("--Select--", languageCode);
+            ViewBag.SelectEmployee = await _translationService.GetTranslationAsyncInd("Select Employee", languageCode);
+            ViewBag.SelectLeaveFormat = await _translationService.GetTranslationAsyncInd("Select Leave Format", languageCode);
+            ViewBag.SelectLeaveType = await _translationService.GetTranslationAsyncInd("Select Leave Type", languageCode);
+            ViewBag.ReasonPlaceholder = await _translationService.GetTranslationAsyncInd("Enter Reason", languageCode);
+            ViewBag.Test = await _translationService.GetTranslationAsyncInd("Test", languageCode);
+            ViewBag.Mobile = await _translationService.GetTranslationAsyncInd("Mobile", languageCode);
+            ViewBag.Laptop = await _translationService.GetTranslationAsyncInd("Laptop", languageCode);
+
+            return View();
+        }
+
+
         public async Task<IActionResult> RazorHelper()
         {
            

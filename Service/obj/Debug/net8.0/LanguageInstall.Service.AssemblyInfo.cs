@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LanguageInstall.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91ffd76cf73b2e1aa5caf180d9c246f14aac8e03")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae493584347606c7e2c53beccd7872c3b51ba323")]
 [assembly: System.Reflection.AssemblyProductAttribute("LanguageInstall.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LanguageInstall.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
