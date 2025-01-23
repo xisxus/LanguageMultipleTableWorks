@@ -3370,11 +3370,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Service\\LanguageInstall.Service.csproj",
+      "projectUniqueName": "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Service\\LanguageInstall.Service.csproj",
       "projectName": "LanguageInstall.Service",
-      "projectPath": "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Service\\LanguageInstall.Service.csproj",
+      "projectPath": "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Service\\LanguageInstall.Service.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Service\\obj\\",
+      "outputPath": "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3396,8 +3396,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Data\\LanguageInstall.Data.csproj": {
-              "projectPath": "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Data\\LanguageInstall.Data.csproj"
+            "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Data\\LanguageInstall.Data.csproj": {
+              "projectPath": "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Data\\LanguageInstall.Data.csproj"
             }
           }
         }

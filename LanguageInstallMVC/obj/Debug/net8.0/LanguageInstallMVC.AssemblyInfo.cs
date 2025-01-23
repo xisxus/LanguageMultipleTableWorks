@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LanguageInstallMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1b425ca8886ecc5087e7ab229f21c810656e697d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2473020830c324b4e13659ff5f0f898313a63fe4")]
 [assembly: System.Reflection.AssemblyProductAttribute("LanguageInstallMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LanguageInstallMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

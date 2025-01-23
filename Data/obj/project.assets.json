@@ -2918,11 +2918,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Data\\LanguageInstall.Data.csproj",
+      "projectUniqueName": "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Data\\LanguageInstall.Data.csproj",
       "projectName": "LanguageInstall.Data",
-      "projectPath": "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Data\\LanguageInstall.Data.csproj",
+      "projectPath": "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Data\\LanguageInstall.Data.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\My Document\\MultiTable Langyhe\\LanguageInstallMVCSln-master\\Data\\obj\\",
+      "outputPath": "D:\\My Document\\Language_install_Module\\LanguageInstall Multiple-Table\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -17,121 +17,121 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LanguageInstallMVC
 build_property.RootNamespace = LanguageInstallMVC
-build_property.ProjectDir = D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\LanguageInstallMVC\
+build_property.ProjectDir = D:\My Document\Language_install_Module\LanguageInstall Multiple-Table\LanguageInstallMVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\My Document\MultiTable Langyhe\LanguageInstallMVCSln-master\LanguageInstallMVC
+build_property.MSBuildProjectDirectory = D:\My Document\Language_install_Module\LanguageInstall Multiple-Table\LanguageInstallMVC
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Home/Index.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Home/MultiTableInd.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Home/MultiTableInd.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNdWx0aVRhYmxlSW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Home/Privacy.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Home/RazorHelper.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Home/RazorHelper.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSYXpvckhlbHBlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/MainTables/Create.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/MainTables/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblRhYmxlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/MainTables/Delete.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/MainTables/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblRhYmxlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/MainTables/Details.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/MainTables/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblRhYmxlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/MainTables/Edit.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/MainTables/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblRhYmxlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/MainTables/Index.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/MainTables/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFpblRhYmxlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Shared/Error.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Shared/TranslationHelper.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Shared/TranslationHelper.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFRyYW5zbGF0aW9uSGVscGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translate/Index.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translate/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translate/Translate.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translate/Translate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFRyYW5zbGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translate/TranslateAll.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translate/TranslateAll.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFRyYW5zbGF0ZUFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translate/TranslateToMultiple.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translate/TranslateToMultiple.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFRyYW5zbGF0ZVRvTXVsdGlwbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translate/TranslateToMultipleInd.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translate/TranslateToMultipleInd.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRlXFRyYW5zbGF0ZVRvTXVsdGlwbGVJbmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translations/Create.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translations/Delete.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translations/Details.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translations/Edit.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Translations/Index.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Translations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNsYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/User/Login.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/User/Register.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/_ViewImports.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/_ViewStart.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/My Document/MultiTable Langyhe/LanguageInstallMVCSln-master/LanguageInstallMVC/Views/Shared/_Layout.cshtml]
+[D:/My Document/Language_install_Module/LanguageInstall Multiple-Table/LanguageInstallMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-byjuywnpud

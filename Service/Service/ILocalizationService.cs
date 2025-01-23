@@ -142,7 +142,7 @@ namespace LanguageInstall.Service.Service
 
             var tableExists = await _languageTableService.TableExistsWithInd(languageCode);
 
-            if (tableExists)
+            if (!tableExists)
             {
                 return key;
             }
